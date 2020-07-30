@@ -1,2 +1,3 @@
-# locust-testable-example
-Demo Locust test to run on Testable
+# Locust Demo Scenario
+
+Demo Locust test for use as a Testable scenario
