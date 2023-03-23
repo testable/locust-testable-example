@@ -1,11 +1,12 @@
-from locust import HttpLocust, TaskSet, task, events
+from locust import HttpUser, between, task, events
 
-class MyTaskSet(TaskSet):
-    @task(1)
+class MyLocust(HttpUser):
+    wait_time = between(5, 15)
+
+    @task
     def ibm(self):
         self.client.get("/stocks/IBM")
-
-class MyLocust(HttpLocust):
-    task_set = MyTaskSet
-    min_wait = 5000
-    max_wait = 15000
+        
+    @task
+    def aapl(self):
+        self.client.get("/stocks/AAPL")
